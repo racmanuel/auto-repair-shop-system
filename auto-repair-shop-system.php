@@ -32,6 +32,9 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+//Include Composer Autoload
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-auto-repair-shop-system-activator.php';
+
 /**
  * Current plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
