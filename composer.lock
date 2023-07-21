@@ -120,7 +120,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "alexis-magina/cmb2-field-post-search-ajax": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

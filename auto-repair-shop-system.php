@@ -33,7 +33,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 //Include Composer Autoload
-require_once plugin_dir_path( __FILE__ ) . 'includes/class-auto-repair-shop-system-activator.php';
+require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 /**
  * Current plugin version.
