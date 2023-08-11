@@ -171,7 +171,11 @@ class Auto_Repair_Shop_System {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		
+		//$this->loader->add_action( 'init', $plugin_admin, 'acf_add_local_post_types');
+		//$this->loader->add_action( 'acf/include_fields' , $plugin_admin, 'acf_add_local_field_group');
+		// run after ACF saves the $_POST['fields'] data
+		$this->loader->add_action( 'acf/save_post', $plugin_admin, 'my_post_title_updater', 20);
+		$this->loader->add_filter( 'acf/settings/load_json', $plugin_admin, 'my_acf_json_load_point' );
 	}
 
 	/**
