@@ -1,15 +1,29 @@
 {
     "name": "racmanuel/auto-repair-shop-system",
-    "autoload": {
-        "files": ["vendor/cmb2/cmb2/init.php"]
+    "description": "My brilliant WordPress site",
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ],
+    "extra": {
+        "installer-paths": {
+            "vendor/{$name}/": [
+                "type:wordpress-plugin"
+            ]
+        }
     },
-    "authors": [{
-        "name": "Manuel Ramirez Coronel",
-        "email": "developer@racmanuel.dev"
-    }],
-    "minimum-stability": "dev",
     "require": {
-        "cmb2/cmb2": "v2.10.1",
-        "alexis-magina/cmb2-field-post-search-ajax": "dev-master"
+        "wpackagist-plugin/advanced-custom-fields": "^6.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
     }
 }

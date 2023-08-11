@@ -35,6 +35,23 @@ if ( ! defined( 'WPINC' ) ) {
 //Include Composer Autoload
 require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
+//Include ACF with composer
+if( ! class_exists( 'ACF' ) ) {
+    // Define path and URL to the ACF plugin.
+    define( 'MY_ACF_PATH', plugin_dir_path( __FILE__ ) . '/vendor/advanced-custom-fields/' );
+    define( 'MY_ACF_URL', plugin_dir_url(__FILE__) . '/vendor/advanced-custom-fields/' );
+	// Include the ACF plugin.
+    include_once( MY_ACF_PATH . 'acf.php' );
+    // Customize the url setting to fix incorrect asset URLs.
+    add_filter( 'acf/settings/url', function( $url ) {
+        return MY_ACF_URL;
+    } );
+    // (Optional) Hide the ACF admin menu item.
+    add_filter( 'acf/settings/show_admin', function( $show_admin ) {
+        return true;
+    } );
+}
+
 /**
  * Current plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
